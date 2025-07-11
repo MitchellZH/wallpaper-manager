@@ -657,8 +657,9 @@ export default function Component() {
       );
 
       const hasLowMemory =
-        "deviceMemory" in navigator && 
-        (navigator as Navigator & { deviceMemory?: number }).deviceMemory !== undefined &&
+        "deviceMemory" in navigator &&
+        (navigator as Navigator & { deviceMemory?: number }).deviceMemory !==
+          undefined &&
         (navigator as Navigator & { deviceMemory: number }).deviceMemory < 4;
 
       const hasLowCPU =
@@ -787,7 +788,6 @@ export default function Component() {
 
       setGridSwipeOffset(limitedOffset);
 
-    
       if (isGridExpanded && deltaY < -30) {
         handleGridExpansion(false);
         setTouchStart(0);
