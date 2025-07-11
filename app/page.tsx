@@ -657,7 +657,9 @@ export default function Component() {
       );
 
       const hasLowMemory =
-        "deviceMemory" in navigator && (navigator as any).deviceMemory < 4;
+        "deviceMemory" in navigator && 
+        (navigator as Navigator & { deviceMemory?: number }).deviceMemory !== undefined &&
+        (navigator as Navigator & { deviceMemory: number }).deviceMemory < 4;
 
       const hasLowCPU =
         "hardwareConcurrency" in navigator && navigator.hardwareConcurrency < 4;
